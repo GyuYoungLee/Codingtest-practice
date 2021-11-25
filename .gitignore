@@ -1,0 +1,8 @@
+Test-backup/
+Practice*/
+Book*/
+temp/
+temp*
+
+.idea/
+.DS_Store
