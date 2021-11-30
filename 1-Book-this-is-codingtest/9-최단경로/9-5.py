@@ -1,4 +1,4 @@
-# 전보: 모든 도시에 도달하는 최종 시간 (다익스트라)
+# 전보: 모든 도시에 도달하는 최소 시간 (다익스트라)
 
 import heapq
 
@@ -9,12 +9,12 @@ for _ in range(M):
     n1, n2, w = map(int, input().split())
     graph[n1].append([n2, w])
 
-INF = int(1e9)
-dist = [INF] * (N + 1)  # 최단거리 테이블
-
-dist[C] = 0
 qu = []
 heapq.heappush(qu, (0, C))
+INF = int(1e9)
+dist = [INF] * (N + 1)  # 최단거리 테이블
+dist[C] = 0
+
 
 while qu:
     d, node = heapq.heappop(qu)
