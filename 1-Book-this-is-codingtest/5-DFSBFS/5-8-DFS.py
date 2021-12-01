@@ -1,4 +1,4 @@
-# DFS
+# [DFS]
 
 N = 4
 graph = [
