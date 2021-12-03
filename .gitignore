@@ -2,8 +2,7 @@
 .DS_Store
 venv/
 
-Test-backup/
 Practice*/
-Book*/
+Test-backup/
 temp/
 temp*
