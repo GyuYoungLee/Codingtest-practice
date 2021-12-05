@@ -1,6 +1,6 @@
 # [등굣길] 최단경로의 개수 (dp)
 
-# dp[i][j] = dp[i-1][j] + dp[i-1][j]
+# dp[i][j] = dp[i-1][j] + dp[i][j-1]
 
 def solution(m, n, puddles):
     dp = [[0] * (m + 1) for _ in range(n + 1)]

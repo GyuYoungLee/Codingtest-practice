@@ -1,15 +1,17 @@
 # [정수 삼각형] 거쳐간 숫자의 최대값 (dp)
 
+# dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + tri[i][j]
+
 def solution(tri):
     n = len(tri)
-    dp = [[-1] * (i + 1) for i in range(n)]
+    dp = [[0] * (i + 1) for i in range(n)]
     dp[0][0] = tri[0][0]
 
     for i in range(1, n):
         for j in range(i + 1):
             # 위 왼쪽: dp[i - 1][j - 1]
-            if j - 1 >= 0:
-                dp[i][j] = max(dp[i][j], dp[i - 1][j - 1] + tri[i][j])
+            if j >= 1:
+                dp[i][j] = dp[i - 1][j - 1] + tri[i][j]
 
             # 위 오른쪽: dp[i - 1][j]
             if j <= i - 1:
