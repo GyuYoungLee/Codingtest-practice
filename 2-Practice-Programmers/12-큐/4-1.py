@@ -5,10 +5,10 @@ def solution(prices):
     result = []
     n = len(prices)
     i = 0
+    j = 1
 
     while i < n:
         count = 0
-        j = i + 1
 
         while j < n:
             count += 1
@@ -18,6 +18,7 @@ def solution(prices):
 
         result.append(count)
         i += 1
+        j = i + 1
 
     return result
 
