@@ -8,16 +8,16 @@ def solution(n, computers):
             if not visited[e]:
                 dfs(e)
 
-    graph = [[] for _ in range(n)]
+    graph = [[] for _ in range(n + 1)]
     for i in range(n):
         for j in range(n):
             if i != j and computers[i][j] == 1:
-                graph[i].append(j)
+                graph[i + 1].append(j + 1)
 
-    visited = [0] * n
+    visited = [0] * (n + 1)
+
     count = 0
-
-    for i in range(n):
+    for i in range(1, n + 1):
         if not visited[i]:
             count += 1
             dfs(i)

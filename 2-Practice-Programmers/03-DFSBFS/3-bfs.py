@@ -14,7 +14,7 @@ def is_possible(w1, w2):
 
 def solution(begin, target, words):
     qu = collections.deque([(begin, 0)])
-    visited = set(begin)
+    visited = [begin]
 
     while qu:
         w, count = qu.popleft()
@@ -23,7 +23,7 @@ def solution(begin, target, words):
 
         for e in [x for x in words if is_possible(w, x)]:
             if e not in visited:
-                visited.add(e)
+                visited.append(e)
                 qu.append((e, count + 1))
 
     return 0

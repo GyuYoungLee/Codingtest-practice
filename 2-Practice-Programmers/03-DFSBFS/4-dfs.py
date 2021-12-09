@@ -30,8 +30,8 @@ def solution(tickets):
         graph[s].append(e)
         routes.append((s, e))
 
-    for _, v in graph.items():
-        v.sort()
+    for k in graph:
+        graph[k].sort()
 
     dfs('ICN', ["ICN"])
     return result[0]  # 알파벳 순서가 앞서는 경로
