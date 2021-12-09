@@ -4,15 +4,15 @@ import functools
 
 
 def comparator(x, y):
-    n1 = x + y
-    n2 = y + x
-    return (int(n1) > int(n2)) - (int(n1) < int(n2))  # n1이 크면 1, n2가 크면 -1, 같으면 0
+    n1 = int(x + y)
+    n2 = int(y + x)
+    return (n1 > n2) - (n1 < n2)  # n1이 크면 1, n2가 크면 -1, 같으면 0
 
 
 def solution(numbers):
-    numbers = list(map(str, numbers))
-    numbers.sort(key=functools.cmp_to_key(comparator), reverse=True)
-    return str(int(''.join(numbers)))
+    a = list(map(str, numbers))
+    a.sort(key=functools.cmp_to_key(comparator), reverse=True)
+    return str(int(''.join(a)))
 
 
 print(solution([6, 10, 2]))  # 6210
