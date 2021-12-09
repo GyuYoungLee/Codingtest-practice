@@ -1,32 +1,31 @@
 # [방의 개수] 방의 개수 (시뮬레이션)
 
-# 재방문 정점이 생길 때마다 방이 생성된다
-# (예외처리) 방이 2개 생성되는 경우 => 이동경로를 2배로 가정한다
-
-
 def solution(arrows):
     move = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
 
     visited = set()
     visited_edges = set()
 
-    v = (0, 0)
-    visited.add(v)
+    x = 0
+    y = 0
+    visited.add((0, 0))
 
     count = 0
     for d in arrows:
         # (예외처리) 방이 2개 생성되는 경우 => 이동경로를 2배로 가정한다
         for _ in range(2):
-            nv = (v[0] + move[d][0], v[1] + move[d][1])
+            nx = x + move[d][0]
+            ny = y + move[d][1]
 
             # 재방문 정점이 생길 때마다 방이 생성된다
-            if nv in visited and (v, nv) not in visited_edges:
+            if (nx, ny) in visited and (x, y, nx, ny) not in visited_edges:
                 count += 1
 
-            visited.add(nv)
-            visited_edges.add((v, nv))
-            visited_edges.add((nv, v))
-            v = nv
+            visited.add((nx, ny))
+            visited_edges.add((x, y, nx, ny))
+            visited_edges.add((nx, ny, x, y))
+            x = nx
+            y = ny
 
     return count
 

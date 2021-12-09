@@ -3,25 +3,26 @@
 # 순위를 매길수 있는 선수 ?? 모든 사람과의 승부 결과를 직접 또는 간접적으로 알수 있는 선수
 
 def solution(n, results):
-    # 1 (승), -1 (패), 0 (모름)
-    dist = [[0] * n for _ in range(n)]
-    for win, lose in results:
-        dist[win-1][lose-1] = 1
-        dist[lose-1][win-1] = -1
+    score = [[0] * (n + 1) for _ in range(n + 1)]
+
+    # 직접 승부 결과 업데이트 => 1 (승), -1 (패), 0 (모름)
+    for w, l in results:
+        score[w][l] = 1
+        score[l][w] = -1
 
     # 간접 승부 결과 업데이트 => (플로이드워셜) i -> k -> j
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                if i != j and dist[i][k] and dist[k][j]:
-                    if dist[i][k] == dist[k][j]:
-                        dist[i][j] = dist[i][k]
-                        dist[j][i] = -dist[i][k]
+    for k in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if i != j and score[i][k] and score[k][j]:
+                    if score[i][k] == score[k][j]:
+                        score[i][j] = score[i][k]
+                        score[j][i] = -score[i][k]
 
     # 모든 사람과의 승부 결과가 있는 선수 카운트
     count = 0
-    for i, a in enumerate(dist):
-        if all(x != 0 for x in a[:i] + a[i+1:]):
+    for arr in score[1:]:
+        if len([x for x in arr[1:] if x != 0]) == n - 1:
             count += 1
     return count
 
