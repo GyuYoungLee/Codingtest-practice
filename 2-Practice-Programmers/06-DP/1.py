@@ -10,7 +10,7 @@ def solution(n, number):
     dp = [[], [n]]
 
     # n 숫자를 i번 사용해서 만들수 있는 숫자들을 구한다
-    for i in range(2, 10):
+    for i in range(2, 9):
         temp = set()
         temp.add(int(str(n) * i))
 
