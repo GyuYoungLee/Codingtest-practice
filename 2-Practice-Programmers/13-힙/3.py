@@ -36,7 +36,7 @@ def solution(arr):
     if not max_heap or not min_heap:
         return [0, 0]
 
-    return [-heapq.heappop(max_heap), heapq.heappop(min_heap)]
+    return [-max_heap[0], min_heap[0]]
 
 
 print(solution(["I 16", "D 1"]))  # [0, 0]

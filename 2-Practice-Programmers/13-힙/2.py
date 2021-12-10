@@ -12,6 +12,7 @@ def solution(jobs):
     jobs = collections.deque(jobs)
     n = len(jobs)
 
+    # jobs: [[0, 3], [1, 9], [2, 6]]
     # 가장 먼저 요청된 작업 1개를 힙에 넣는다
     qu = []
     t, w = jobs.popleft()

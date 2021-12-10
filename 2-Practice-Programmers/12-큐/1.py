@@ -1,24 +1,31 @@
-# [주식가격] 가격이 떨어지지 않은 기간은 몇 초인지 (큐)
+# [기능개발] 각 배포마다 몇개 기능이 배포되는지 리턴 (큐)
 
 import collections
+import math
 
 
-def solution(prices):
+def solution(progresses, speeds):
+    # 완료일 리스트
+    days = []
+    for p, s in zip(progresses, speeds):
+        days.append(math.ceil((100 - p) / s))
+
+    # 배포갯수 리스트: qu [7, 3, 9] => result [2, 1]
     result = []
-    qu = collections.deque(prices)
+    qu = collections.deque(days)
 
     while qu:
         x = qu.popleft()
-        
-        count = 0
-        for i in qu:
+        count = 1
+
+        while qu and qu[0] <= x:
+            qu.popleft()
             count += 1
-            if i < x:
-                break
-        
+
         result.append(count)
 
     return result
 
 
-print(solution([1, 2, 3, 2, 3]))  # [4, 3, 1, 1, 0]
+print(solution([93, 30, 55], [1, 30, 5]))  # [2, 1]
+print(solution([95, 90, 99, 99, 80, 99], [1, 1, 1, 1, 1, 1]))  # [1, 3, 2]
