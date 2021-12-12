@@ -1,6 +1,6 @@
-# [병사 배치하기] 전투력이 감소하는 부분수열의 최대길이 (DP, LIS)
+# [병사 배치하기] 전투력이 감소하는 부분수열의 최대 길이 (DP, LIS)
 
-# dp[i] = max(dp[j] + 1)....  (j < i, a[j] > a[i])
+# dp[i] = max(dp[j]) + 1....  (j < i, a[j] > a[i])
 
 n = int(input())
 a = list(map(int, input().split()))

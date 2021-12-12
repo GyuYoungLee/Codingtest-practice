@@ -1,7 +1,7 @@
-# [퇴사] 상담결과 최대수익 (DP)
+# [퇴사] 상담결과로 얻을수 있는 최대 수익 (DP)
 
 # dp[i] = max(해당일 상담을 안하는 경우, 해당일 상담을 하는 경우)
-#       = max(dp[i+1]            , dp[i+t[i]] + a[i])
+#       = max(dp[i+1]            , a[i] + dp[time])
 
 n = int(input())
 t = []
@@ -12,16 +12,16 @@ for _ in range(n):
     a.append(int(aa))
 
 dp = [0] * (n + 1)
-dp[n] = 0
 
 # 뒤의 값으로부터 앞의 값을 구한다
 for i in range(n - 1, -1, -1):
+
     # 해당일 상담을 안하는 경우
     dp[i] = dp[i + 1]
 
     # 해당일 상담을 하는 경우
     time = i + t[i]
     if time <= n:
-        dp[i] = max(dp[i], dp[time] + a[i])
+        dp[i] = max(dp[i], a[i] + dp[time])
 
 print(dp[0])

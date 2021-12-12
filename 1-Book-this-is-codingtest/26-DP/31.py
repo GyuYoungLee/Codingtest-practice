@@ -1,4 +1,4 @@
-# [금광] 열 방행으로 이동시 채취된 금의 최대량 (DP)
+# [금광] 열 방행으로 이동시 채취된 금의 최대값 (DP)
 
 # dp[i][j] = max(dp[i-1][j-1], dp[i][j-1], dp[i+1][j-1]) + a[i][j]
 
@@ -16,6 +16,7 @@ for _ in range(tc):
 
     dp = [[0] * (m + 1) for _ in range(n + 2)]
 
+    # 열 방향으로 이동
     max_v = 0
     for j in range(1, m + 1):
         for i in range(1, n + 1):
