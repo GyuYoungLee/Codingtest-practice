@@ -1,4 +1,4 @@
-# [실패율] 실패율 역순으로 정렬 (정렬)
+# [실패율] 실패율 역순으로 스테이지 정렬 (정렬)
 
 def solution(n, stages):
     fail_rate = []
@@ -7,13 +7,15 @@ def solution(n, stages):
 
     # stage 1 에서 stage n 까지 실패율 계산
     for i in range(1, n + 1):
-        n = len(stages)
 
         if not stages:
             fail_rate.append((i, 0))
             continue
 
+        # 실패율 계산
+        n = len(stages)
         count = 0
+
         while stages and stages[-1] == i:
             stages.pop()
             count += 1
