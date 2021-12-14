@@ -12,8 +12,7 @@ for i in range(n + 1):
 
 for _ in range(m):
     a, b, w = map(int, sys.stdin.readline().rstrip().split())
-    # 노선 중 최소비용으로 저장
-    if w < dist[a][b]:
+    if w < dist[a][b]:  # 노선 중 최소비용으로 저장
         dist[a][b] = w
 
 for k in range(1, n + 1):

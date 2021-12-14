@@ -2,8 +2,7 @@
 
 def solution(n, stages):
     fail_rate = []
-    stages.sort(reverse=True)
-    # stages: [6, 4, 3, 3, 2, 2, 2, 1]
+    stages.sort(reverse=True)  # stages: [6, 4, 3, 3, 2, 2, 2, 1]
 
     # stage 1 에서 stage n 까지 실패율 계산
     for i in range(1, n + 1):

@@ -5,6 +5,6 @@ import math
 n = int(input())
 house = list(map(int, input().split()))
 
-house.sort()
+house.sort()  # 정렬
 
 print(house[(n - 1) // 2])

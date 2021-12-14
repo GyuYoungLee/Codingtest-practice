@@ -1,5 +1,7 @@
 # [가사 검색] 매치된 단어의 개수 (이분탐색) <= 정규식으로 풀면 시간초과
 
+# (아이디어) "fro??" => 길이가 5이고, froaa <= x <= frozz 인지 확인한다
+
 import collections
 import bisect
 
