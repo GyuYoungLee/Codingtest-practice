@@ -1,16 +1,16 @@
 # [최종 순위] 올해순위 (위상정렬) <= 인접리스트로 풀면 시간초과
 
-import itertools
 import collections
+import sys
 
 tc = int(input())
 result = []
 
 for _ in range(tc):
     n = int(input())
-    rank = list(map(int, input().split()))
+    rank = list(map(int, sys.stdin.readline().rstrip().split()))
     m = int(input())
-    change = [list(map(int, input().split())) for _ in range(m)]
+    change = [list(map(int, sys.stdin.readline().rstrip().split())) for _ in range(m)]
 
     graph = [[0] * (n + 1) for _ in range(n + 1)]  # 인접 행렬
     indegree = [0] * (n + 1)
