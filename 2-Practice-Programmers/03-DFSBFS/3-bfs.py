@@ -2,7 +2,7 @@
 
 # 탐색방향: 알파벳차이 1개
 # 탐색조건: e not in visited
-# 탐색결과: visited.add(e)
+# 탐색결과: visited.append(e)
 
 import collections
 
