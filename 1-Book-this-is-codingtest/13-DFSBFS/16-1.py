@@ -1,4 +1,4 @@
-# [연구소] 바이러스 전파 후 안전영역의 최대값 (DFS/BFS, 완전탐색=재귀)
+# [연구소] 바이러스 전파 후 안전영역의 최대값 (재귀 + DFS/BFS)
 
 # 탐색 방향: 상하좌우
 # 탐색 조건: MAP[x][y] = 0
@@ -55,10 +55,8 @@ def dfs(wall):
         for j in range(m):
             if _map[i][j] == 0:
                 _map[i][j] = 1
-                wall += 1
-                dfs(wall)
+                dfs(wall + 1)
                 _map[i][j] = 0
-                wall -= 1
 
 
 dfs(0)

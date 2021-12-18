@@ -1,4 +1,4 @@
-# [타켓 넘버] 숫자를 만드는 모든 경우의 수 (dfs)
+# [타켓 넘버] 숫자를 만드는 모든 경우의 수 (재귀)
 
 def solution(arr, target):
     count = 0

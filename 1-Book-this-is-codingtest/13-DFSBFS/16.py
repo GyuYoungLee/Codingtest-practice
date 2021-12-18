@@ -1,12 +1,12 @@
-# [연구소] 바이러스 전파 후 안전영역의 최대값 (DFS/BFS, 완전탐색=조합)
+# [연구소] 바이러스 전파 후 안전영역의 최대값 (조합 + DFS/BFS)
 
 # 탐색 방향: 상하좌우
 # 탐색 조건: MAP[x][y] = 0
 # 탐색 결과: MAP[x][y] = 2
 
 import itertools
-import collections
 import copy
+import collections
 
 n, m = map(int, input().split())
 
@@ -28,8 +28,8 @@ for candidates in itertools.combinations(space, 3):
     temp = copy.deepcopy(_map)
 
     # 벽 3개 설치
-    for x, y in candidates:
-        temp[x][y] = 1
+    for i, j in candidates:
+        temp[i][i] = 1
 
     # 바이러스 전파
     qu = collections.deque(virus)
