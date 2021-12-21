@@ -5,12 +5,13 @@
 
 n = int(input())
 a = list(map(int, input().split()))
-a.sort()
 
+a.sort()
 possible_max = a[0]
-for x in a[1:]:
-    if x > possible_max:
+
+for i in range(1, len(a)):
+    if a[i] > possible_max:
         break
-    possible_max += x
+    possible_max += a[i]
 
 print(possible_max + 1)

@@ -7,13 +7,14 @@ a = list(map(int, input().split()))
 
 a.sort()
 
-group = 0
-count = 0
+group = 0  # 그룹 갯수
+team = 0  # 팀 인원
 
 for x in a:
-    count += 1
-    if count >= x:
-        group += 1
-        count = 0
+    team += 1
 
-print(group)
+    if team >= x:
+        group += 1
+        team = 0
+
+print(group)  # 2

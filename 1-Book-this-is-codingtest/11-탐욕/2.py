@@ -7,10 +7,11 @@ a = list(map(int, input()))
 result = a[0]
 
 for i in range(1, len(a)):
-    c = a[i]
-    if result in [0, 1] or c in [0, 1]:
-        result += c
+    current = a[i]
+
+    if result in [0, 1] or current in [0, 1]:
+        result += current
     else:
-        result *= c
+        result *= current
 
 print(result)

@@ -4,25 +4,24 @@ import heapq
 
 
 def solution(food_times, k):
-    if sum(food_times) <= k:
+    if k >= sum(food_times):
         return -1
 
     qu = []
-    for i, v in enumerate(food_times):
-        heapq.heappush(qu, [v, i + 1])  # 음식의 갯수, 번호
+    for i, x in enumerate(food_times):
+        heapq.heappush(qu, (x, i + 1))
 
-    n = len(qu)
     pre = 0
+    while k - len(qu) * (qu[0][0] - pre) >= 0:
+        w = len(qu)
+        h = heapq.heappop(qu)[0] - pre
+        k -= w * h
 
-    while (qu[0][0] - pre) * n <= k:
-        now = heapq.heappop(qu)[0]
-        k -= (now - pre) * n
-
-        n -= 1
-        pre = now
+        pre = h
 
     remain = sorted(qu, key=lambda x: x[1])
-    return remain[k % n][1]
+    no = remain[k % len(remain)][1]
+    return no
 
 
-print(solution([3, 1, 2], 5))
+print(solution([3, 1, 2], 5))  # 1
