@@ -1,30 +1,30 @@
-# [게임개발] 캐릭터가 방문한 칸의 수 (구현)
+# [게임개발] 상하좌우 이동이 가능할 때 탐색 (구현)
 
 n, m = map(int, input().split())
 x, y, direction = map(int, input().split())
 
-MAP = []
+_map = []
 for _ in range(n):
-    MAP.append(list(map(int, input().split())))
+    _map.append(list(map(int, input().split())))
 
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
-visited = [[0] * m for _ in range(n)]
-visited[x][y] = 1
-
+_map[x][y] = 2
 count = 1
 turn_times = 0
+
 while True:
     direction = direction - 1 if direction != 0 else 3
     nx = x + dx[direction]
     ny = y + dy[direction]
 
     # 앞으로 이동
-    if MAP[nx][ny] == 0 and not visited[nx][ny]:
+    if _map[nx][ny] == 0:  # 탐색 조건 (육지)
         x = nx
         y = ny
-        visited[x][y] = 1
+        print(x, y)
+        _map[nx][ny] = 2  # 탐색 결과
         count += 1
         turn_times = 0
 
@@ -37,11 +37,13 @@ while True:
         nx = x - dx[direction]
         ny = y - dy[direction]
 
-        if MAP[nx][ny] == 0:
+        if _map[nx][ny] == 1:  # 종료조건 (바다)
+            break
+        else:
             x = nx
             y = ny
+            print(x, y)
             turn_times = 0
-        else:
-            break
+
 
 print(count)  # 3

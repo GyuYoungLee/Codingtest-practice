@@ -1,4 +1,4 @@
-# [자물쇠와 열쇠] 열쇠와 자물쇠를 합쳐서 맞는지 확인 (구현)
+# [자물쇠와 열쇠] 열쇠와 자물쇠를 합쳐서 맞는지 확인 (구현, 완전탐색)
 
 def rotate_90(a):
     n = len(a)
@@ -10,8 +10,7 @@ def rotate_90(a):
     return result
 
 
-def check(new_lock):
-    n = len(new_lock) // 3
+def check(new_lock, n):
     for i in range(n, n * 2):
         for j in range(n, n * 2):
             if new_lock[i][j] != 1:
@@ -42,7 +41,7 @@ def solution(key, lock):
                     for j in range(m):
                         new_lock[i + x][j + y] += key[i][j]
                 # 검사
-                if check(new_lock):
+                if check(new_lock, n):
                     return True
 
                 # 열쇠 빼기

@@ -11,16 +11,18 @@ def solution(food_times, k):
     for i, x in enumerate(food_times):
         heapq.heappush(qu, (x, i + 1))
 
+    n = len(qu)
     pre = 0
-    while k - len(qu) * (qu[0][0] - pre) >= 0:
-        w = len(qu)
-        h = heapq.heappop(qu)[0] - pre
-        k -= w * h
 
-        pre = h
+    while k - (qu[0][0] - pre) * n >= 0:
+        now = heapq.heappop(qu)[0]
+        k -= (now - pre) * n  # 모든 음식을 한번에 감소시킨다
+
+        n -= 1
+        pre = now
 
     remain = sorted(qu, key=lambda x: x[1])
-    no = remain[k % len(remain)][1]
+    no = remain[k % n][1]
     return no
 
 

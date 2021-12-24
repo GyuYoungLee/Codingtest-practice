@@ -3,13 +3,13 @@
 ar = input()
 
 alpha = []
-num = 0
+num = []
 
 for ch in ar:
     if ch.isalpha():
         alpha.append(ch)
     else:
-        num += int(ch)
+        num.append(int(ch))
 
-result = sorted(alpha) + [str(num)]
-print(''.join(map(str, result)))
+result = sorted(alpha) + ([str(sum(num))] if num else [])
+print(''.join(result))

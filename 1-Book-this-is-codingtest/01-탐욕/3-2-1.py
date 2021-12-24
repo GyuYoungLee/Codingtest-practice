@@ -1,4 +1,4 @@
-# [큰수의 법칙] M번 선택해서 만들어지는 가장 큰수 (탐욕)
+# [큰수의 법칙] m번 선택해서 만들어지는 가장 큰수 (탐욕)
 
 n, m, k = map(int, input().split())
 data = list(map(int, input().split()))
