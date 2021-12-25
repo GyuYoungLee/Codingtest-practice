@@ -15,10 +15,9 @@ for i in range(n):
             chicken.append((i, j))
 
 result = int(1e9)  # 모든 케이스 중 최소값
-
 for candidates in itertools.combinations(chicken, m):
-    total = 0
 
+    total = 0
     for hx, hy in house:
         dist = int(1e9)  # 가장 가까운 치킨집의 거리
         for cx, cy in candidates:

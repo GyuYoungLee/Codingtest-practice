@@ -35,10 +35,13 @@ while True:
             snake.append((nx, ny))
             px, py = snake.pop(0)
             _map[px][py] = 0  # 꼬리 제외
-        # 사과
+
+        # 사과가 있다면
         elif _map[nx][ny] == 1:
             _map[nx][ny] = 2
             snake.append((nx, ny))
+
+    # 종료조건: 벽 또는 자신의 몸과 부딪히면
     else:
         break
 
