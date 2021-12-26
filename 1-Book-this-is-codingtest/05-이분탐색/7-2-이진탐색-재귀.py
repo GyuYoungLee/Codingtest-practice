@@ -1,4 +1,4 @@
-# 이진 탐색
+# [이진 탐색] 재귀
 
 def binary_search(a, x, start, end):
     if start > end:
