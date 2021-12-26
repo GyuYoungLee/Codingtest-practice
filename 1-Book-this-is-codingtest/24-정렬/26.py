@@ -12,8 +12,8 @@ result = 0
 while len(qu) >= 2:
     a = heapq.heappop(qu)
     b = heapq.heappop(qu)
-
     result += a + b
+
     heapq.heappush(qu, a + b)
 
 print(result)

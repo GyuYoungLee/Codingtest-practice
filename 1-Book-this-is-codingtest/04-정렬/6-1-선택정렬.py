@@ -8,6 +8,7 @@ for i in range(N - 1):
     for j in range(i + 1, N):
         if a[j] < a[min_idx]:
             min_idx = j
+
     a[i], a[min_idx] = a[min_idx], a[i]
 
 print(a)

@@ -6,10 +6,10 @@ n = int(input())
 
 student = []
 for _ in range(n):
-    name, a, b, c = sys.stdin.readline().rstrip().split()
-    student.append((int(a), int(b), int(c), name))
+    name, ko, en, math = sys.stdin.readline().rstrip().split()
+    student.append((int(ko), int(en), int(math), name))
 
 student.sort(key=lambda x: (-x[0], x[1], -x[2], x[3]))  # 정렬
 
-for a, b, c, name in student:
+for ko, en, math, name in student:
     print(name)
