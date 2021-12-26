@@ -1,7 +1,7 @@
 # [감시 피하기] 선생님이 학생을 탐색할수 있는지 (재귀 + DFS/BFS)
 
 # 탐색 방향: 상하좌우
-# 탐색 조건: MAP[x][y] != 'O'
+# 탐색 조건: MAP[x][y] == 'X'
 # 탐색 결과: MAP[x][y] = 'T'
 
 import copy
@@ -21,10 +21,8 @@ for i in range(n):
             teacher.append((i, j, 0, 1))
             teacher.append((i, j, 0, -1))
 
-result = "NO"
 
-
-def dfs(obstacle):
+def make(obstacle):
     global result
 
     # 장애물 3개 추가
@@ -44,22 +42,22 @@ def dfs(obstacle):
                 if temp[nx][ny] == 'S':
                     watch = True
                     break
-                elif temp[nx][ny] != 'O':
+                elif temp[nx][ny] == 'X':
                     temp[nx][ny] = 'T'
                     qu.append((nx, ny, dx, dy))
 
         if not watch:
             result = "YES"
-
         return
 
     for i in range(n):
         for j in range(n):
             if _map[i][j] == 'X':
                 _map[i][j] = 'O'
-                dfs(obstacle + 1)
+                make(obstacle + 1)
                 _map[i][j] = 'X'
 
 
-dfs(0)
+result = "NO"
+make(0)
 print(result)

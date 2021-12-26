@@ -3,8 +3,8 @@
 # 참조: 5-10 문제와 동일
 
 # 탐색 방향: 상하좌우
-# 탐색 조건: low <= 인구차 <= high
-# 탐색 결과: 인구 배분
+# 탐색 조건: visited[x][y] == 0, low <= 인구차 <= high
+# 탐색 결과: visited[x][y] = 1,  인구 배분
 
 import collections
 
@@ -16,16 +16,16 @@ def move(si, sj):
     qu = collections.deque([(si, sj)])
     visited[si][sj] = 1
 
-    country = []
     count = 0
     total = 0
+    country = []
 
     # 대상국가 탐색
     while qu:
         x, y = qu.popleft()
-        country.append((x, y))
         count += 1
         total += _map[x][y]
+        country.append((x, y))
 
         for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
             nx = x + dx
@@ -40,14 +40,13 @@ def move(si, sj):
         _map[i][j] = total // count
 
 
-turn = 0
-
 # 더이상 인구 이동이 발생하지 않을 때까지 반복
+turn = 0
 while True:
     visited = [[0] * n for _ in range(n)]
-    count = 0
 
     # 모든 위치마다 반복
+    count = 0
     for i in range(n):
         for j in range(n):
             if not visited[i][j]:

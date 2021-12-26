@@ -1,7 +1,7 @@
 # [연구소] 바이러스 전파 후 안전영역의 최대값 (조합 + DFS/BFS)
 
 # 탐색 방향: 상하좌우
-# 탐색 조건: MAP[x][y] = 0
+# 탐색 조건: MAP[x][y] == 0
 # 탐색 결과: MAP[x][y] = 2
 
 import itertools
@@ -29,7 +29,7 @@ for candidates in itertools.combinations(space, 3):
 
     # 벽 3개 설치
     for i, j in candidates:
-        temp[i][i] = 1
+        temp[i][j] = 1
 
     # 바이러스 전파
     qu = collections.deque(virus)

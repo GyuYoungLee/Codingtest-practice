@@ -8,6 +8,7 @@ def get_balanced(a):
             cnt += 1
         else:
             cnt -= 1
+
         if cnt == 0:
             return a[:i + 1], a[i + 1:]
 
@@ -47,4 +48,6 @@ def solution(p):
     return result
 
 
-print(solution("()))((()"))
+print(get_balanced("(()())()"))  # '(()())', '()'
+print(is_proper('(()())'))  # True
+print(solution("(()())()"))

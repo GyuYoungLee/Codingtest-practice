@@ -1,8 +1,8 @@
-# [특정 거리의 도시 찾기] 최단 거리가 k인 도시의 번호 (BFS)
+# [특정 거리의 도시 찾기] 최단 거리가 k인 도시의 번호 (BFS or 다익스트라)
 
 # 탐색 방향: 그래프
-# 탐색 조건: dist = -1
-# 탐색 결과: dist = dist + 1
+# 탐색 조건: dist == -1 (1차원 맵으로 생각하기)
+# 탐색 결과: dist += 1
 
 import collections
 import sys
@@ -30,11 +30,11 @@ while qu:
             qu.append(e)
 
 
-check = False
+is_exist = False
 for i in range(1, n + 1):
     if dist[i] == k:
         print(i)
-        check = True
+        is_exist = True
 
-if not check:
+if not is_exist:
     print(-1)

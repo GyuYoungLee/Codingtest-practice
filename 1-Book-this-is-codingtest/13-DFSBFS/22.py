@@ -3,8 +3,8 @@
 # (아이디어) 정점을 set()으로 표현 => {(1, 1), (1, 2)}
 
 # 탐색 방향: 상하좌우
-# 탐색 조건: board == 0
-# 탐색 결과: 인구 배분
+# 탐색 조건: e not in visited, board[x][y] == 0
+# 탐색 결과: visited.append(e)
 
 import collections
 
@@ -25,18 +25,22 @@ def get_next(now, board):
 
     # 회전 - 로봇이 가로로 놓인 경우
     if x1 == x2:
+        # 아래쪽
         if board[x1 - 1][y1] == 0 and board[x2 - 1][y2] == 0:
             result.append({(x1, y1), (x1 - 1, y1)})
             result.append({(x2, y2), (x2 - 1, y2)})
+        # 위쪽
         if board[x1 + 1][y1] == 0 and board[x2 + 1][y2] == 0:
             result.append({(x1, y1), (x1 + 1, y1)})
             result.append({(x2, y2), (x2 + 1, y2)})
 
     # 회전 - 로봇이 세로로 놓인 경우
     if y1 == y2:
+        # 왼쪽
         if board[x1][y1 - 1] == 0 and board[x2][y2 - 1] == 0:
             result.append({(x1, y1), (x1, y1 - 1)})
             result.append({(x2, y2), (x2, y2 - 1)})
+        # 오른쪽
         if board[x1][y1 + 1] == 0 and board[x2][y2 + 1] == 0:
             result.append({(x1, y1), (x1, y1 + 1)})
             result.append({(x2, y2), (x2, y2 + 1)})

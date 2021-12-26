@@ -1,7 +1,7 @@
 # [감시 피하기] 선생님이 학생을 탐색할수 있는지 (조합 + DFS/BFS)
 
 # 탐색 방향: 상하좌우
-# 탐색 조건: MAP[x][y] != 'O'
+# 탐색 조건: MAP[x][y] == 'X'
 # 탐색 결과: MAP[x][y] = 'T'
 
 import itertools
@@ -47,7 +47,7 @@ for candidates in itertools.combinations(space, 3):
             if temp[nx][ny] == 'S':
                 watch = True
                 break
-            elif temp[nx][ny] != 'O':
+            elif temp[nx][ny] == 'X':
                 temp[nx][ny] = 'T'
                 qu.append((nx, ny, dx, dy))
 
