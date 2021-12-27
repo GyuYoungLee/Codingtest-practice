@@ -9,6 +9,8 @@ end = max(data)
 result = 0
 while start <= end:
     mid = (start + end) // 2
+
+    # 절단기 높이가 mid 일때 잘려지는 떡의 길이
     cutted = sum([x - mid for x in data if x > mid])
 
     if cutted >= M:

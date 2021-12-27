@@ -7,24 +7,6 @@ a = [int(sys.stdin.readline().rstrip()) for _ in range(n)]
 
 a.sort()
 
-
-def get_count(a, dist):
-    n = len(a)
-    i = 0
-    j = 1
-    count = 1
-
-    while j < n:
-        if a[j] - a[i] >= dist:
-            count += 1
-            i = j
-            j = i + 1
-        else:
-            j += 1
-
-    return count
-
-
 s = 1
 e = a[-1] - a[0]
 result = 0
@@ -32,7 +14,7 @@ result = 0
 while s <= e:
     mid = (s + e) // 2
 
-    # count = get_count(a, mid)
+    # 공유기 거리가 mid 일때 설치가능한 공유기 갯수
     count = 1
     i = 0
     for j in range(1, n):

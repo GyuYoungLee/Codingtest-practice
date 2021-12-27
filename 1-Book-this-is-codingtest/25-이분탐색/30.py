@@ -8,26 +8,25 @@ import bisect
 
 def solution(words, queries):
     result = []
-    a1 = collections.defaultdict(list)
-    a2 = collections.defaultdict(list)
+    d1 = collections.defaultdict(list)
+    d2 = collections.defaultdict(list)
+
     for w in words:
-        n = len(w)
-        a1[n].append(w)
-        a2[n].append(w[::-1])
+        d1[len(w)].append(w)
+        d2[len(w)].append(w[::-1])
 
     # 이분탐색을 위한 정렬
-    for n in a1:
-        a1[n].sort()
-        a2[n].sort()
+    for i in d1:
+        d1[i].sort()
+        d2[i].sort()
 
     for q in queries:
-        n = len(q)
         if q[-1] == '?':
-            left = bisect.bisect_left(a1[n], q.replace('?', 'a'))
-            right = bisect.bisect_right(a1[n], q.replace('?', 'z'))
+            left = bisect.bisect_left(d1[len(q)], q.replace('?', 'a'))
+            right = bisect.bisect_right(d1[len(q)], q.replace('?', 'z'))
         else:
-            left = bisect.bisect_left(a2[n], q[::-1].replace('?', 'a'))
-            right = bisect.bisect_right(a2[n], q[::-1].replace('?', 'z'))
+            left = bisect.bisect_left(d2[len(q)], q[::-1].replace('?', 'a'))
+            right = bisect.bisect_right(d2[len(q)], q[::-1].replace('?', 'z'))
 
         result.append(right - left)
 

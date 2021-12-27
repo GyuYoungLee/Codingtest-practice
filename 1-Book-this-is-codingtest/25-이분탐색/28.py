@@ -21,4 +21,4 @@ while s <= e:
 if target == -1:
     print(-1)
 else:
-    print(target)
+    print(a[target])
