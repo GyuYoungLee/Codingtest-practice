@@ -11,7 +11,7 @@ dp[0] = 0
 
 for i in range(1, M + 1):
     for coin in coin_types:
-        if i >= coin:
+        if i - coin >= 0:
             dp[i] = min(dp[i], dp[i - coin] + 1)
 
 print(dp[M] if dp[M] != 10001 else -1)  # 5

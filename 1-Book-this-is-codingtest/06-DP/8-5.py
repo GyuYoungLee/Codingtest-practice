@@ -8,7 +8,7 @@ X = int(input())
 dp = [X] * (X + 1)  # 최소값을 구하므로 큰값으로 초기화
 dp[1] = 0
 
-for i in range(3, X + 1):
+for i in range(2, X + 1):
     dp[i] = dp[i - 1] + 1
     if i % 2 == 0:
         dp[i] = min(dp[i], dp[i // 2] + 1)
