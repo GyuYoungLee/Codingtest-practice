@@ -1,31 +1,19 @@
 # [못생긴 수] n번째 못생긴 수 (DP)
 
 target = 10
-
-dp = [1]
-i = j = k = 0
-m2, m3, m5 = 2, 3, 5
-#            4, 6, 10
-#            6, 9, 15
+dp = [{2, 3, 5}]
 
 while True:
-    min_v = min(m2, m3, m5)
-    dp.append(min_v)
+    temp = set(dp[-1])
+    for x in dp[-1]:
+        temp.add(x * 2)
+        temp.add(x * 3)
+        temp.add(x * 5)
 
-    if len(dp) == target:
+    if len(temp) >= target:
         break
+    dp.append(temp)
 
-    if min_v == m2:
-        i += 1
-        m2 = dp[i] * 2
-
-    if min_v == m3:
-        j += 1
-        m3 = dp[j] * 3
-
-    if min_v == m5:
-        k += 1
-        m5 = dp[k] * 5
-
-print(dp)
-print(dp[-1])
+temp |= {1, }
+result = sorted(list(temp))[target - 1]
+print(result)
