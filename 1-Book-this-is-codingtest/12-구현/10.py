@@ -6,7 +6,7 @@ def rotate_90(a):
     result = [[0] * n for _ in range(m)]
     for i in range(n):
         for j in range(m):
-            result[j][n - 1 - i] = a[i][j]
+            result[j][(n - 1) - i] = a[i][j]
     return result
 
 

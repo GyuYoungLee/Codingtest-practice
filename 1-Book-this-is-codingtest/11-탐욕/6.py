@@ -22,8 +22,7 @@ def solution(food_times, k):
         pre = now
 
     remain = sorted(qu, key=lambda x: x[1])
-    no = remain[k % n][1]
-    return no
+    return remain[k % n][1]
 
 
 print(solution([3, 1, 2], 5))  # 1
