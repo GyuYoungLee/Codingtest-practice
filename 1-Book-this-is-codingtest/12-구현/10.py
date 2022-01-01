@@ -22,6 +22,7 @@ def solution(key, lock):
     m = len(key)
     n = len(lock)
 
+    # (TIP) key를 맞춰보기 위해 lock을 3배 늘린다
     new_lock = [[0] * (n * 3) for _ in range(n * 3)]
 
     for i in range(n):

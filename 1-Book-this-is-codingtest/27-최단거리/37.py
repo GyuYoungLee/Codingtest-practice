@@ -23,5 +23,5 @@ for k in range(1, n + 1):
 for i in range(1, n + 1):
     for j in range(1, n + 1):
         # 갈수 없는 경우에 0으로 출력
-        print(dist[i][j] if dist[i][j] != INF else 0, end=' ')
+        print(dist[i][j] if dist[i][j] < INF else 0, end=' ')
     print()

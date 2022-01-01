@@ -20,13 +20,15 @@ def get_count(s_pos, m, weak, dist):
 
 def solution(n, weak, dist):
     m = len(weak)
+
+    # (TIP) 점검 시작위치를 바꿔보기 위해 weak를 2배 늘린다
     weak += [x + n for x in weak]
 
     # 친구 순서를 바꾸어가며 탐색
     min_v = int(1e9)
     for candidates in itertools.permutations(dist, len(dist)):
 
-        # 점검 시작 위치를 바꾸어가며 탐색
+        # 점검 시작위치를 바꾸어가며 탐색
         for s_pos in range(m):
             cnt = get_count(s_pos, m, weak, candidates)  # 투입되는 친구수
             min_v = min(min_v, cnt)
@@ -34,4 +36,4 @@ def solution(n, weak, dist):
     return min_v if min_v <= len(dist) else -1
 
 
-print(solution(12, [1, 5, 6, 10], [1, 2, 3, 4]))
+print(solution(12, [1, 5, 6, 10], [1, 2, 3, 4]))  # 2

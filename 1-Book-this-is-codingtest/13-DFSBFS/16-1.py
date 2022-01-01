@@ -59,4 +59,4 @@ def make(wall):
 
 result = 0
 make(0)
-print(result)
+print(result)  # 27

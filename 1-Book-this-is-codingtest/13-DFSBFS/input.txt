@@ -40,6 +40,12 @@ X X X X X
 X T X X X
 X X T X X
 
+4
+S S X X
+X O X X
+X T X X
+X X X X
+
 ### 21
 
 2 20 50

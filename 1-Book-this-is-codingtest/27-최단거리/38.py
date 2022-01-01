@@ -12,20 +12,20 @@ for _ in range(m):
     score[a][b] = -1
     score[b][a] = 1
 
-
 # 간접 승부 결과 업데이트 => (플로이드워셜) i -> k -> j
 for k in range(1, n + 1):
     for i in range(1, n + 1):
         for j in range(1, n + 1):
-            if i != j and score[i][k] and score[k][j]:
+            if score[i][k] and score[k][j]:
                 if score[i][k] == score[k][j]:
                     score[i][j] = score[i][k]
                     score[j][i] = -score[i][k]
 
 # 모든 사람과의 승부 결과가 있는 학생 카운트
 count = 0
-for arr in score[1:]:
-    if len([x for x in arr[1:] if x != 0]) == n - 1:
+for i in range(1, n + 1):
+    f = score[i][1:]
+    if len([x for x in f if x != 0]) == n - 1:
         count += 1
 
 print(count)
