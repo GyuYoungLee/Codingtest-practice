@@ -1,5 +1,9 @@
 # [서로소 집합]
 
+N = 6
+parent = [0, 1, 2, 3, 4, 5, 6]  # 부모 테이블
+
+
 def find(x):
     if parent[x] == x:
         return x
@@ -15,9 +19,6 @@ def union(a, b):
     else:
         parent[a] = b
 
-
-N = 6
-parent = [0, 1, 2, 3, 4, 5, 6]  # 부모 테이블
 
 union(1, 4)
 union(2, 3)

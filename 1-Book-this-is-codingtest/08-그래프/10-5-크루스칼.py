@@ -1,5 +1,9 @@
 # [크루스칼]
 
+N = 4
+parent = [0, 1, 2, 3, 4]  # 부모 테이블
+
+
 def find(x):
     if parent[x] != x:
         parent[x] = find(parent[x])
@@ -14,9 +18,6 @@ def union(a, b):
     else:
         parent[a] = b
 
-
-N = 4
-parent = [0, 1, 2, 3, 4]  # 부모 테이블
 
 edges = [
     (1, 2, 4),

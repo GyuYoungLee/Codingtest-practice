@@ -15,17 +15,17 @@ def union(a, b):
         parent[a] = b
 
 
-N, M = map(int, input().split())
-parent = list(range(N + 1))
+n, m = map(int, input().split())
+parent = list(range(n + 1))
+data = [list(map(int, input().split())) for _ in range(m)]
 
-for _ in range(M):
-    op, a, b = map(int, input().split())
+for op, a, b in data:
     if op == 0:
         union(a, b)
-    elif op == 1:
+    else:
         if find(a) == find(b):
-            print("YES")
+            print('YES')
         else:
-            print("NO")
+            print('NO')
 
 # NO NO YES
