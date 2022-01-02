@@ -41,10 +41,10 @@ X T X X X
 X X T X X
 
 4
-S S X X
-X O X X
-X T X X
+S S S T
 X X X X
+X X X X
+T T T X
 
 ### 21
 

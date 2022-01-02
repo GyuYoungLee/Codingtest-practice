@@ -2,17 +2,17 @@
 
 # 탐색 방향: 상하좌우
 # 탐색 조건: MAP[x][y] == 'X'
-# 탐색 결과: MAP[x][y] = 'T'
+# 탐색 결과:
 
-import itertools
-import copy
 import collections
+import copy
+import itertools
 
 n = int(input())
 
 _map = []
-teacher = []
 space = []
+teacher = []
 
 for i in range(n):
     _map.append(list(input().split()))
@@ -26,7 +26,7 @@ for i in range(n):
             teacher.append((i, j, 0, -1))
 
 
-result = "NO"
+result = 'NO'
 for candidates in itertools.combinations(space, 3):
     temp = copy.deepcopy(_map)
 
@@ -48,11 +48,11 @@ for candidates in itertools.combinations(space, 3):
                 watch = True
                 break
             elif temp[nx][ny] == 'X':
-                temp[nx][ny] = 'T'
                 qu.append((nx, ny, dx, dy))
 
+    # 결과처리
     if not watch:
-        result = "YES"
+        result = 'YES'
         break
 
 print(result)

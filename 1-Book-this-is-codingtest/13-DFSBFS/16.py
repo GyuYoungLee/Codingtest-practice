@@ -4,24 +4,24 @@
 # 탐색 조건: MAP[x][y] == 0
 # 탐색 결과: MAP[x][y] = 2
 
-import itertools
-import copy
 import collections
+import copy
+import itertools
 
 n, m = map(int, input().split())
 
 _map = []
-virus = []
 space = []
+virus = []
 
 for i in range(n):
     data = list(map(int, input().split()))
     _map.append(data)
     for j in range(m):
-        if data[j] == 2:
-            virus.append((i, j))
-        elif data[j] == 0:
+        if data[j] == 0:
             space.append((i, j))
+        elif data[j] == 2:
+            virus.append((i, j))
 
 result = 0
 for candidates in itertools.combinations(space, 3):
