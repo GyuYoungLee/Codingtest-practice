@@ -12,9 +12,9 @@ n, low, high = map(int, input().split())
 _map = [list(map(int, input().split())) for _ in range(n)]
 
 
-def move(si, sj):
-    qu = collections.deque([(si, sj)])
-    visited[si][sj] = 1
+def move(sx, sy):
+    qu = collections.deque([(sx, sy)])
+    visited[sx][sy] = 1
 
     count = 0
     total = 0
@@ -46,15 +46,15 @@ while True:
     visited = [[0] * n for _ in range(n)]
 
     # 모든 위치마다 반복
-    count = 0
+    group = 0
     for i in range(n):
         for j in range(n):
             if not visited[i][j]:
-                count += 1
+                group += 1
                 move(i, j)
 
     # 더이상 인구이동이 발생하지 않는 경우
-    if count == n * n:
+    if group == n * n:
         break
 
     turn += 1

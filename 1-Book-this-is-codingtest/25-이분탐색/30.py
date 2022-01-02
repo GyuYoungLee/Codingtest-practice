@@ -2,8 +2,8 @@
 
 # (아이디어) "fro??" => 길이가 5이고, froaa <= x <= frozz 인지 확인한다
 
-import collections
 import bisect
+import collections
 
 
 def solution(words, queries):
