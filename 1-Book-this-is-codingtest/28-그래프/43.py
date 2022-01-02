@@ -1,4 +1,4 @@
-# [어두운 길] 제오된 경로로 절약할 수 있는 금액 (크루스칼)
+# [어두운 길] 제외된 경로로 절약할 수 있는 금액 (크루스칼)
 
 def find(x):
     if parent[x] == x:
@@ -17,6 +17,7 @@ def union(a, b):
 
 
 n, m = map(int, input().split())
+parent = list(range(n))
 
 total = 0
 edges = []
@@ -26,8 +27,6 @@ for _ in range(m):
     total += w
 
 edges.sort()
-
-parent = list(range(n + 1))
 
 mst = 0
 for w, a, b in edges:

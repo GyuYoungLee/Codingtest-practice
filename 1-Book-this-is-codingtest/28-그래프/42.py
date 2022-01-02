@@ -1,6 +1,6 @@
 # [탑승구] 도킹가능한 비행기수 (서로소집합)
 
-# (아이디어) 도킹가능한 탑승구 중 가장 큰 위치에 도킹시키고, 서로소집합에 추가한다
+# (아이디어) 탑승구 중 가장 큰 위치에 도킹시키고, 해당 탑승구를 서로소집합에 추가한다
 
 def find(x):
     if parent[x] == x:
@@ -27,7 +27,7 @@ parent = list(range(gate + 1))
 count = 0
 for x in docking:
     root = find(x)
-    if root == 0:  # 루트가 0이면 도킹 가능한 게이트가 없는 셈이다
+    if root == 0:  # 루트가 0이면 도킹 가능한 답승구가 없는 셈이다
         break
 
     union(root, root - 1)
