@@ -1,15 +1,16 @@
 # [큰수의 법칙] m번 선택해서 만들어지는 가장 큰수 (탐욕)
 
 n, m, k = map(int, input().split())
-data = list(map(int, input().split()))
+numbers = list(map(int, input().split()))
 
-data.sort()
-*_, second, first = data
+numbers.sort(reverse=True)
+first, second, *_ = numbers
 
 # 풀이 2 (개선)
-first_cnt = m // (k + 1) * k + m % (k + 1)
-second_cnt = m // (k + 1)
 
-result = first * first_cnt + second * second_cnt
+# 6 6 6 5 6 6 6 5 => (6 6 6 5) * 2
+repeat_times = m // (k + 1)
+add_count_of_first = m % (k + 1)
 
-print(result)  # 46
+result = (first * k + second) * repeat_times + first * add_count_of_first
+print(result)

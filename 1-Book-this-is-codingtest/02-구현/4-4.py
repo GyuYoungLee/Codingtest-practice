@@ -15,7 +15,7 @@ count = 1
 turn_times = 0
 
 while True:
-    direction = direction - 1 if direction != 0 else 3
+    direction = 3 if direction == 0 else direction - 1
     nx = x + dx[direction]
     ny = y + dy[direction]
 
@@ -23,7 +23,6 @@ while True:
     if _map[nx][ny] == 0:  # 탐색 조건 (육지)
         x = nx
         y = ny
-        print(x, y)
         _map[nx][ny] = 2  # 탐색 결과
         count += 1
         turn_times = 0
@@ -42,7 +41,6 @@ while True:
         else:
             x = nx
             y = ny
-            print(x, y)
             turn_times = 0
 
 

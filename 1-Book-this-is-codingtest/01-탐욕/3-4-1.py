@@ -9,6 +9,7 @@ while n != 1:
     if n % k == 0:
         n //= k
         count += 1
+
     else:
         if n >= k:
             target = n // k * k
