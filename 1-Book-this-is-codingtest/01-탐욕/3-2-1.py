@@ -10,7 +10,7 @@ first, second, *_ = numbers
 
 # 6 6 6 5 6 6 6 5 => (6 6 6 5) * 2
 repeat_times = m // (k + 1)
-add_count_of_first = m % (k + 1)
+rest_count_of_first = m % (k + 1)
 
-result = (first * k + second) * repeat_times + first * add_count_of_first
+result = (first * k + second) * repeat_times + first * rest_count_of_first
 print(result)

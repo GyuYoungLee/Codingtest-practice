@@ -17,6 +17,7 @@ while qu:
     for dx, dy in [(1, 0), (0, -1), (-1, 0), (0, 1)]:
         nx = x + dx
         ny = y + dy
+
         if 0 <= nx < N and 0 <= ny < M:
             if MAP[nx][ny] == 1:
                 MAP[nx][ny] = MAP[x][y] + 1

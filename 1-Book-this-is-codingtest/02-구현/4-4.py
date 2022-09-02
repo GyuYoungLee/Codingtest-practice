@@ -36,7 +36,7 @@ while True:
         nx = x - dx[direction]
         ny = y - dy[direction]
 
-        if _map[nx][ny] == 1:  # 종료조건 (바다)
+        if _map[nx][ny] == 1:  # 종료 조건 (바다)
             break
         else:
             x = nx
