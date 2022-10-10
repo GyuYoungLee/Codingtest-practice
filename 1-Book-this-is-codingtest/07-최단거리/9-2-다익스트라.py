@@ -12,7 +12,7 @@ graph = [
 ]
 
 S = 1
-dist = [int(1e9)] * (N + 1)  # 최단거리 테이블
+dist = [int(1e9)] * (N + 1)  # 거리 테이블
 
 qu = []
 heapq.heappush(qu, (0, S))

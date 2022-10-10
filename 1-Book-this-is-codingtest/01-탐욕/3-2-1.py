@@ -12,5 +12,7 @@ first, second, *_ = numbers
 repeat_times = m // (k + 1)
 rest_count_of_first = m % (k + 1)
 
-result = (first * k + second) * repeat_times + first * rest_count_of_first
+result = (first * k + second) * repeat_times
+result += first * rest_count_of_first
+
 print(result)

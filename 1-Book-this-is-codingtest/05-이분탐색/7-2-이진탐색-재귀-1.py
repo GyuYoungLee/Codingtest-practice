@@ -13,9 +13,9 @@ def binary_search(a, x, start, end):
     else:
         binary_search(a, x, start, mid - 1)
 
-    return result
 
+d = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 result = -1
-d = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-print(binary_search(d, 36, 0, len(d) - 1))
+binary_search(d, 36, 0, len(d) - 1)
+print(result)

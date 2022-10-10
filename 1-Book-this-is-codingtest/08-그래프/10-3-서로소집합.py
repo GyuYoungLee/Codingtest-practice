@@ -6,9 +6,10 @@ parent = [0, 1, 2, 3, 4, 5, 6]  # 부모 테이블
 
 def find(x):
     if parent[x] == x:
-        return x
-    parent[x] = find(parent[x])
-    return parent[x]
+        return parent[x]
+    else:
+        parent[x] = find(parent[x])
+        return parent[x]
 
 
 def union(a, b):

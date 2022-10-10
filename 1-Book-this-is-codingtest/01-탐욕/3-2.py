@@ -8,8 +8,9 @@ first, second, *_ = numbers
 
 # 풀이 1
 result = 0
+
 while True:
-    for i in range(k):
+    for _ in range(k):
         if m == 0:
             break
         result += first

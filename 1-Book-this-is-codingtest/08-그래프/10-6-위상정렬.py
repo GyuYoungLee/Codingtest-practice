@@ -13,10 +13,11 @@ graph = [
     [4],
     []
 ]
+
 S = 1
+indegree = [0, 0, 1, 1, 2, 1, 2, 1]  # 진입차수 테이블
 
 qu = collections.deque([S])
-indegree = [0, 0, 1, 1, 2, 1, 2, 1]  # 진입차수 테이블
 
 while qu:
     node = qu.popleft()

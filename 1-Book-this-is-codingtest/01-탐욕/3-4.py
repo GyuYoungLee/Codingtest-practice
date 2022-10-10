@@ -1,6 +1,7 @@
 # [1이 될때까지] 최소 연산횟수 (탐욕 or DP)
 
 n, k = map(int, input().split())
+
 count = 0
 
 # 풀이 1
