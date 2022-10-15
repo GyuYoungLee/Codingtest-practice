@@ -21,27 +21,29 @@ while True:
 
     # 앞으로 이동
     if _map[nx][ny] == 0:  # 탐색 조건 (육지)
-        x = nx
-        y = ny
         _map[nx][ny] = 2  # 탐색 결과
         count += 1
+
+        x = nx
+        y = ny
+        turn_times = 0
+
+    # 뒤로 이동
+    elif turn_times == 4:
+        nx = x - dx[direction]
+        ny = y - dy[direction]
+
+        if _map[nx][ny] == 1:  # 종료 조건 (바다)
+            break
+
+        x = nx
+        y = ny
         turn_times = 0
 
     # 방향 전환
     else:
         turn_times += 1
 
-    # 뒤로 이동
-    if turn_times == 4:
-        nx = x - dx[direction]
-        ny = y - dy[direction]
-
-        if _map[nx][ny] == 1:  # 종료 조건 (바다)
-            break
-        else:
-            x = nx
-            y = ny
-            turn_times = 0
 
 
 print(count)  # 3

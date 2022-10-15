@@ -1,8 +1,9 @@
 # [상하좌우] 순차적으로 다음 위치로 이동 (구현)
 
-move_types = ['L', 'R', 'U', 'D']
-dx = [0, 0, -1, 1]
-dy = [-1, 1, 0, 0]
+move_types = ['D', 'U', 'R', 'L']
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
 
 n = int(input())
 plans = input().split()
