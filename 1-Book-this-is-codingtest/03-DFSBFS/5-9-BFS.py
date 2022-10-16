@@ -2,7 +2,7 @@
 
 import collections
 
-N = 4
+n = 4
 graph = [
     [],
     [2, 3],
@@ -11,15 +11,15 @@ graph = [
     [2, 3]
 ]
 
-S = 1
-visited = [0] * (N + 1)  # 방문 테이블
+s = 1
+visited = [0] * (n + 1)  # 방문 테이블
 
-qu = collections.deque([S])
-visited[S] = 1
+qu = collections.deque([s])
+visited[s] = 1
 
 while qu:
     v = qu.popleft()
-    print(v, end=' ')  # 탐색
+    print(v)
 
     for e in graph[v]:
         if not visited[e]:

@@ -2,7 +2,7 @@
 
 import collections
 
-N = 4
+n = 4
 graph = [
     [],
     [2, 3],
@@ -11,15 +11,15 @@ graph = [
     [2, 3]
 ]
 
-S = 1
-dist = [-1] * (N + 1)  # 거리 테이블
+s = 1
+dist = [-1] * (n + 1)  # 방문 테이블
 
-qu = collections.deque([S])
-dist[S] = 0
+qu = collections.deque([s])
+dist[s] = 0
 
 while qu:
     v = qu.popleft()
-    print(v, end=' ')  # 탐색
+    print(v)
 
     for e in graph[v]:
         if dist[e] == -1:
